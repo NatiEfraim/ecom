@@ -26,9 +26,10 @@ class MegaMenu extends Component {
                 }`}
                 onClick={() => this.handleAccordionClick(index)}
               >
+                {/* <Shirt /> */}
                 <img
                   className="accordionMenuIcon"
-                  src="https://image.flaticon.com/icons/png/128/739/739249.png"
+                  src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93bi1zcXVhcmUiPjxyZWN0IHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgeD0iMyIgeT0iMyIgcng9IjIiLz48cGF0aCBkPSJtMTYgMTAtNCA0LTQtNCIvPjwvc3ZnPg=="
                   alt={`Icon ${index}`}
                 />
                 &nbsp; Men's Clothing
