@@ -27,6 +27,7 @@ import ProductDetailsPage from "../pages/ProductDetailsPage";
 import NotificationPage from "../pages/NotificationPage";
 import FavouritePage from "../pages/FavouritePage";
 import CartPage from "../pages/CartPage";
+import AboutPage from "../pages/AboutPage";
 
 class AppRoute extends Component {
   render() {
@@ -39,14 +40,13 @@ class AppRoute extends Component {
           <Route exact path="/purchase" component={PurchasePage} />
           <Route exact path="/privacy" component={PrivacyPage} />
           <Route exact path="/refund" component={RefundPage} />
+          <Route exact path="/about" component={AboutPage} />
+
           <Route exact path="/productdetails" component={ProductDetailsPage} />
+
           <Route exact path="/notification" component={NotificationPage} />
           <Route exact path="/favourite" component={FavouritePage} />
           <Route exact path="/cart" component={CartPage} />
-
-          {/* <Switch>
-            <Route exact path="/" component={HomePage} />{" "}
-          </Switch> */}
         </Router>
       </Fragment>
     );

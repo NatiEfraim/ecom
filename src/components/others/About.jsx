@@ -3,11 +3,12 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import AppURL from "../../api/AppURL";
 import axios from "axios";
 import ReactHtmlParser from "react-html-parser";
-export class Purchase extends Component {
+
+class About extends Component {
   constructor() {
     super();
     this.state = {
-      purchase: "",
+      about: "",
     };
   }
 
@@ -17,8 +18,8 @@ export class Purchase extends Component {
       .then((response) => {
         let StatusCode = response.status;
         if (StatusCode == 200) {
-          let JsonData = response.data[0]["parchase_guide"];
-          this.setState({ purchase: JsonData });
+          let JsonData = response.data[0]["about"];
+          this.setState({ about: JsonData });
         }
       })
       .catch((error) => {});
@@ -36,9 +37,10 @@ export class Purchase extends Component {
               sm={12}
               xs={12}
             >
-              <h4 className="section-title-login">Purchase Page </h4>
+              <h4 className="section-title-login">About Us Page</h4>
               <p className="section-title-contact">
-                {ReactHtmlParser(this.state.purchase)}
+                {" "}
+                {ReactHtmlParser(this.state.about)}
               </p>
             </Col>
           </Row>
@@ -48,4 +50,4 @@ export class Purchase extends Component {
   }
 }
 
-export default Purchase;
+export default About;
