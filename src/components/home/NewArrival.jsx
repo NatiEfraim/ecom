@@ -1,12 +1,16 @@
 import React, { Component, Fragment } from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Card } from "react-bootstrap";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import AppURL from "../../api/AppURL";
+import axios from "axios";
 class NewArrival extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      ProductData: [],
+    };
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
   }
@@ -16,8 +20,50 @@ class NewArrival extends Component {
   previous() {
     this.slider.slickPrev();
   }
-
+  componentDidMount() {
+    axios
+      .get(AppURL.ProductListByRemark("NEW"))
+      .then((response) => {
+        this.setState({ ProductData: response.data });
+      })
+      .catch((error) => {});
+  }
   render() {
+    const NewList = this.state.ProductData;
+    const MyView = NewList.map((NewList, i) => {
+      if (NewList.special_price === "na") {
+        return (
+          <div>
+            <Card className="image-box card">
+              <img alt="" className="center" src={NewList.image} />
+              <Card.Body>
+                <p className="product-name-on-card">{NewList.title}</p>
+                <p className="product-price-on-card">
+                  Price : ${NewList.price}
+                </p>
+              </Card.Body>
+            </Card>
+          </div>
+        );
+      } else {
+        return (
+          <div>
+            <Card className="image-box card">
+              <img alt="" className="center" src={NewList.image} />
+              <Card.Body>
+                <p className="product-name-on-card">{NewList.title}</p>
+                <p className="product-price-on-card">
+                  Price :{" "}
+                  <strike className="text-secondary">${NewList.price}</strike> $
+                  {NewList.special_price}
+                </p>
+              </Card.Body>
+            </Card>
+          </div>
+        );
+      }
+    });
+
     var settings = {
       dots: false,
       //   infinite: false,
@@ -63,11 +109,19 @@ class NewArrival extends Component {
           <div className="section-title text-center mb-55">
             <h2>
               NEW ARRIVAL &nbsp;
-              <a className="btn btn-sm ml-2 site-btn" onClick={this.previous}>
+              <a
+                href="/"
+                className="btn btn-sm ml-2 site-btn"
+                onClick={this.previous}
+              >
                 <i className="fa fa-angle-left"></i>
               </a>
               &nbsp;
-              <a className="btn btn-sm ml-2 site-btn" onClick={this.next}>
+              <a
+                href="/"
+                className="btn btn-sm ml-2 site-btn"
+                onClick={this.next}
+              >
                 <i className="fa fa-angle-right"></i>
               </a>
             </h2>
@@ -76,7 +130,8 @@ class NewArrival extends Component {
 
           <Row>
             <Slider ref={(c) => (this.slider = c)} {...settings}>
-              <div>
+              {MyView}
+              {/* <div>
                 <Card className="image-box card">
                   <img
                     className="center"
@@ -187,7 +242,7 @@ class NewArrival extends Component {
                     <p className="product-price-on-card">Price : $120</p>
                   </Card.Body>
                 </Card>
-              </div>
+              </div> */}
             </Slider>
           </Row>
         </Container>

@@ -19,20 +19,20 @@ class ProductDetails extends Component {
             >
               <Row>
                 <Col className="p-3" md={6} lg={6} sm={12} xs={12}>
-                  <img className="w-100" src={Product1} />
+                  <img alt="" className="w-100" src={Product1} />
                   <Container className="my-3">
                     <Row>
                       <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
-                        <img className="w-100" src={Product1} />
+                        <img alt="" className="w-100" src={Product1} />
                       </Col>
                       <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
-                        <img className="w-100" src={Product2} />
+                        <img alt="" className="w-100" src={Product2} />
                       </Col>
                       <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
-                        <img className="w-100" src={Product3} />
+                        <img alt="" className="w-100" src={Product3} />
                       </Col>
                       <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
-                        <img className="w-100" src={Product4} />
+                        <img alt="" className="w-100" src={Product4} />
                       </Col>
                     </Row>
                   </Container>

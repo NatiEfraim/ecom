@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AppURL from "../../api/AppURL";
 import axios from "axios";
+import { Link } from "react-router-dom";
 class MegaMenuAll extends Component {
   constructor() {
     super();
@@ -43,6 +44,7 @@ class MegaMenuAll extends Component {
         <div key={i.toString()}>
           <button onClick={this.MenuItemClick} className="accordionAll">
             <img
+              alt=""
               className="accordionMenuIconAll"
               src={CatList.category_image}
             />
@@ -52,10 +54,18 @@ class MegaMenuAll extends Component {
             <ul>
               {CatList.subcategory_name.map((SubList, i) => {
                 return (
-                  <li>
-                    <a href="#" className="accordionItemAll">
+                  <li key={i}>
+                    <Link
+                      to={
+                        "productsubcategory/" +
+                        CatList.category_name +
+                        "/" +
+                        SubList.subcategory_name
+                      }
+                      className="accordionItem"
+                    >
                       {SubList.subcategory_name}{" "}
-                    </a>
+                    </Link>
                   </li>
                 );
               })}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 class MegaMenu extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +33,11 @@ class MegaMenu extends Component {
       return (
         <div key={i.toString()}>
           <button onClick={this.MenuItemClick} className="accordion">
-            <img className="accordionMenuIcon" src={CatList.category_image} />
+            <img
+              alt=""
+              className="accordionMenuIcon"
+              src={CatList.category_image}
+            />
             &nbsp; {CatList.category_name}
           </button>
           <div className="panel">
@@ -41,9 +45,17 @@ class MegaMenu extends Component {
               {CatList.subcategory_name.map((SubList, i) => {
                 return (
                   <li>
-                    <a href="#" className="accordionItem">
+                    <Link
+                      to={
+                        "productsubcategory/" +
+                        CatList.category_name +
+                        "/" +
+                        SubList.subcategory_name
+                      }
+                      className="accordionItem"
+                    >
                       {SubList.subcategory_name}{" "}
-                    </a>
+                    </Link>
                   </li>
                 );
               })}
