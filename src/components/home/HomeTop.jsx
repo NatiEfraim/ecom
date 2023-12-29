@@ -9,14 +9,22 @@ class HomeTop extends Component {
     super();
     this.state = {
       MenuData: [],
+      SliderData: [],
     };
   }
-
+  //////At the moment the component run.
   componentDidMount() {
     axios
       .get(AppURL.AllCategoryDetails)
       .then((response) => {
         this.setState({ MenuData: response.data });
+      })
+      .catch((error) => {});
+
+    axios
+      .get(AppURL.AllSlider)
+      .then((response) => {
+        this.setState({ SliderData: response.data });
       })
       .catch((error) => {});
   }
@@ -30,7 +38,7 @@ class HomeTop extends Component {
             </Col>
 
             <Col lg={9} md={9} sm={12}>
-              <HomeSlider />
+              <HomeSlider data={this.state.SliderData} />{" "}
             </Col>
           </Row>
         </Container>

@@ -34,7 +34,7 @@ class NewArrival extends Component {
       if (NewList.special_price === "na") {
         return (
           <div>
-            <Card className="image-box card">
+            <Card key={i} className="image-box card">
               <img alt="" className="center" src={NewList.image} />
               <Card.Body>
                 <p className="product-name-on-card">{NewList.title}</p>
@@ -48,7 +48,7 @@ class NewArrival extends Component {
       } else {
         return (
           <div>
-            <Card className="image-box card">
+            <Card key={i} className="image-box card">
               <img alt="" className="center" src={NewList.image} />
               <Card.Body>
                 <p className="product-name-on-card">{NewList.title}</p>

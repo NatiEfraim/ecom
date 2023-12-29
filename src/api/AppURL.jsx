@@ -18,6 +18,7 @@ class AppURL {
       this.BaseURL + "/productlistbysubcategory/" + category + "/" + subcategory
     );
   }
+  static AllSlider = this.BaseURL + "/allslider";
 }
 
 export default AppURL;
